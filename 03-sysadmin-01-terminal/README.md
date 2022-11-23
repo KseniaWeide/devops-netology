@@ -26,7 +26,10 @@
 
 **Увеличить эти показатели в Vagrantfile:**
 
-![img_1.png](img_1.png)
+    config.vm.provider "virtualbox" do |v|
+    v.memory = 1024
+    v.cpus = 2
+    end
 
 
 3. Команда `vagrant ssh` из директории, в которой содержится Vagrantfile, позволит вам оказаться внутри виртуальной машины без каких-либо дополнительных настроек. Попрактикуйтесь в выполнении обсуждаемых команд в терминале Ubuntu.
@@ -95,6 +98,13 @@ ignoreboth это сокращение для 2х директив ignorespace a
     (прочие строки могут отличаться содержимым и порядком)
     В качестве ответа приведите команды, которые позволили вам добиться указанного вывода или соответствующие скриншоты.
 
+       vagrant@vagrant:~$ mkdir /tmp/new_path_dir/
+       vagrant@vagrant:~$ cp /bin/bash /tmp/new_path_dir/
+       vagrant@vagrant:~$ PATH=/tmp/new_path_dir/:$PATH
+       vagrant@vagrant:~$ type -a bash
+       bash is /tmp/new_path_dir/bash
+       bash is /usr/bin/bash
+       bash is /bin/bash
 
 9. Чем отличается планирование команд с помощью `batch` и `at`?
 
