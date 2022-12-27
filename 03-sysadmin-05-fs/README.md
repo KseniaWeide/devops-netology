@@ -116,6 +116,7 @@
 
 
     vagrant@sysadm-fs:~$ sudo pvcreate /dev/md0
+
     vagrant@sysadm-fs:~$ sudo pvcreate /dev/md1
 
 10. Создайте общую volume-group на этих двух PV.
