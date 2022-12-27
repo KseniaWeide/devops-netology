@@ -103,11 +103,11 @@
 
 7. Соберите `mdadm` RAID1 на паре разделов 2 Гб.
 
-       vagrant@sysadm-fs:~$ sudo mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sd[bc]1
+        vagrant@sysadm-fs:~$ sudo mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sd[bc]1
 
 8. Соберите `mdadm` RAID0 на второй паре маленьких разделов.
 
-       vagrant@sysadm-fs:~$ sudo mdadm --create /dev/md1 --level=0 --raid-devices=2 /dev/sd[bc]2
+        vagrant@sysadm-fs:~$ sudo mdadm --create /dev/md1 --level=0 --raid-devices=2 /dev/sd[bc]2
 
 <img alt="img_2.png" height="220" src="img_2.png" width="400"/>
 
@@ -115,30 +115,30 @@
 9. Создайте 2 независимых PV на получившихся md-устройствах.
 
 
-    vagrant@sysadm-fs:~$ sudo pvcreate /dev/md0
+        vagrant@sysadm-fs:~$ sudo pvcreate /dev/md0
 
-    vagrant@sysadm-fs:~$ sudo pvcreate /dev/md1
+        vagrant@sysadm-fs:~$ sudo pvcreate /dev/md1
 
 10. Создайте общую volume-group на этих двух PV.
 
 
-    vagrant@sysadm-fs:~$ sudo vgcreate netology /dev/md0 /dev/md1
+        vagrant@sysadm-fs:~$ sudo vgcreate netology /dev/md0 /dev/md1
 
 11. Создайте LV размером 100 Мб, указав его расположение на PV с RAID0.
 
 
-    vagrant@sysadm-fs:~$ sudo lvcreate -L 100m -n netology-lv netology /dev/md1
+        vagrant@sysadm-fs:~$ sudo lvcreate -L 100m -n netology-lv netology /dev/md1
 
 
 12. Создайте `mkfs.ext4` ФС на получившемся LV.
 
 
-    vagrant@sysadm-fs:~$ sudo mkfs.ext4 -L netology-ext4 -m 1 /dev/mapper/netology-netology--lv
+        vagrant@sysadm-fs:~$ sudo mkfs.ext4 -L netology-ext4 -m 1 /dev/mapper/netology-netology--lv
 
 13. Смонтируйте этот раздел в любую директорию, например, `/tmp/new`.
 
 
-    vagrant@sysadm-fs:~$ sudo mount /dev/mapper/netology-netology--lv /tmp/new/
+        vagrant@sysadm-fs:~$ sudo mount /dev/mapper/netology-netology--lv /tmp/new/
 
 <img alt="img_3.png" height="50" src="img_3.png" width="400"/>
 
