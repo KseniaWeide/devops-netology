@@ -126,6 +126,21 @@ while True:
             print('[ERROR] ', list_dns[i], ' IP mismatch: ', list_ip[i], ' ', socket.gethostbyname(list_dns[i]))
 ```
 
+Доработка, комментарий преподавателя: 
+
+"В четвёртой лучше было решать через словарь, где для каждого хоста (ключ) хранился бы ip (значение)": 
+``` python
+dict_dns_ip = {'yandex.ru': '0.0.0.0',
+               'drive.yandex.ru': '0.0.0.0',
+               'mail.yandex.ru': '0.0.0.0'}
+while True:
+    for key, value in dict_dns_ip.items():
+        value = socket.gethostbyname(key)
+        print(key + ' - ' + value)
+        if value != socket.gethostbyname(key):
+            print('[ERROR] ', key, ' IP mismatch: ', value,' ', socket.gethostbyname(key))
+```
+
 ### Вывод скрипта при запуске при тестировании:
 Смену ip я так и не дождалась, подменила сама. Оно сработало верно.
 
