@@ -115,28 +115,22 @@ else:
 ```python
 import socket
 
-list = []
-while 1==1:
-    yandex = list.append(socket.gethostbyname('yandex.ru'))
-    print('yandex.ru - ' + list[0])
-    yandex_drive = list.append(socket.gethostbyname('drive.yandex.ru'))
-    print('drive.yandex.ru - ' + list[1])
-    yandex_mail = list.append(socket.gethostbyname('mail.yandex.ru'))
-    print('mail.yandex.ru - ' + list[2])
-    list = list[-6:]
-    if len(list) >= 5:
-        if list[0] != list[3]:
-            print("[ERROR] yandex.ru IP mismatch: " +  list[0] + " " + list[3])
+list_dns = ['yandex.ru', 'drive.yandex.ru', 'mail.yandex.ru']
+list_ip = ['0.0.0.0', '0.0.0.0', '0.0.0.0']
 
-        if list[1] != list[4]:
-            print("[ERROR] drive.yandex.ru IP mismatch: " +  list[1] + " " +  list[4])
-            
-        if list[2] != list[5]:
-            print("[ERROR] mail.yandex.ru IP mismatch: " +  list[2] + " " +  list[5])
+while True:
+    for i in range(0, 3):
+        list_ip[i] = socket.gethostbyname(list_dns[i])
+        print(list_dns[i] + ' - ' + list_ip[i])
+        if list_ip[i] != socket.gethostbyname(list_dns[i]):
+            print('[ERROR] ', list_dns[i], ' IP mismatch: ', list_ip[i], ' ', socket.gethostbyname(list_dns[i]))
 ```
 
 ### Вывод скрипта при запуске при тестировании:
-Смену ip я так и не дождалась, подменила сама, для наглядности сделала вывод списка дважды и поставила break там, где должно было сработать условие, чтобы не пропустить вывод. Оно сработало верно.
+Смену ip я так и не дождалась, подменила сама. Оно сработало верно.
 
-<img alt="img_2.png" src="img_2.png"/>
+<img alt="img_5.png" src="img_5.png"/>
 
+Без принудительной смены ip:
+
+<img alt="img_4.png" src="img_4.png"/>
