@@ -148,8 +148,6 @@ internal_ip_address_node01_yandex_cloud = "192.168.101.12"
 
 Для получения зачета, вам необходимо предоставить: 
 - Скриншот работающего веб-интерфейса Grafana с текущими метриками, как на примере ниже
-<p align="center">
-  <img width="1200" height="600" src="./assets/yc_02.png">
-</p>
+  <img alt="img_4.png" src="img_4.png"/>
 
 <img alt="img_3.png" src="img_3.png"/>
