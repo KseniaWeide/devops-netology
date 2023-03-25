@@ -225,7 +225,7 @@ postgres=# SELECT * FROM clients;
   5 | Ritchie Blackmore    | Russia            |
 (5 rows)
 
-test_db=# SELECT count(1) FROM clients;
+postgres=# SELECT count(1) FROM clients;
  count
 -------
      5
@@ -270,6 +270,8 @@ postgres=# SELECT c.* FROM clients c JOIN orders o ON c.заказ = o.id;
 (3 rows)
 
 ```
+
+
 ## Задача 5
 
 Получите полную информацию по выполнению запроса выдачи всех пользователей из задачи 4 
