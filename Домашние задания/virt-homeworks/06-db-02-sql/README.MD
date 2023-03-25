@@ -255,21 +255,47 @@ postgres=# SELECT count(1) FROM clients;
 
 ``` bash
 
-postgres=# UPDATE clients SET "заказ" = (SELECT id FROM orders WHERE "наименование"='Книга') WHERE "фамилия"='Иванов Иван Иванович';
-UPDATE 1
-postgres=# UPDATE clients SET "заказ" = (SELECT id FROM orders WHERE "наименование"='Монитор') WHERE "фамилия"='Петров Петр Петрович';
-UPDATE 1
-postgres=# UPDATE clients SET "заказ" = (SELECT id FROM orders WHERE "наименование"='Гитара') WHERE "фамилия"='Иоганн Себастьян Бах';
-UPDATE 1
-postgres=# SELECT c.* FROM clients c JOIN orders o ON c.заказ = o.id;
+postgres=# INSERT INTO orders VALUES (1, 'Шоколад', 10), (2, 'Принтер', 3000), (3, 'Книга', 500), (4, 'Монитор', 7000), (5, 'Гитара', 4000);
+INSERT 0 5
+
+postgres=# SELECT * FROM orders;
+ id | наименование | цена
+----+--------------+------
+  1 | Шоколад      |   10
+  2 | Принтер      | 3000
+  3 | Книга        |  500
+  4 | Монитор      | 7000
+  5 | Гитара       | 4000
+(5 rows)
+
+postgres=# SELECT count(1) FROM orders;
+ count
+-------
+     5
+(1 row)
+
+postgres=# INSERT INTO clients VALUES (1, 'Иванов Иван Иванович', 'USA'), (2, 'Петров Петр Петрович', 'Canada'), (3, 'Иоганн Себастьян Бах', 'Japan'), (4, 'Ронни Джеймс Дио', 'Russia'), (5, 'Ritchie Blackmore', 'Russia');
+INSERT 0 5
+
+postgres=# SELECT * FROM clients;
  id |       фамилия        | страна проживания | заказ
 ----+----------------------+-------------------+-------
-  1 | Иванов Иван Иванович | USA               |     3
-  2 | Петров Петр Петрович | Canada            |     4
-  3 | Иоганн Себастьян Бах | Japan             |     5
-(3 rows)
+  1 | Иванов Иван Иванович | USA               |
+  2 | Петров Петр Петрович | Canada            |
+  3 | Иоганн Себастьян Бах | Japan             |
+  4 | Ронни Джеймс Дио     | Russia            |
+  5 | Ritchie Blackmore    | Russia            |
+(5 rows)
+
+postgrs=#  SELECT count(1) FROM clients;
+ count
+-------
+     5
+(1 row)
 
 ```
+
+
 ## Задача 5
 
 Получите полную информацию по выполнению запроса выдачи всех пользователей из задачи 4 
