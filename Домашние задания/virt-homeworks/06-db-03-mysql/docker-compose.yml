@@ -1,0 +1,17 @@
+version: '3.6'
+
+volumes:
+  data-mysql:
+  bkp-mysql:
+services:
+  db: 
+   image: mysql:8
+   restart: always
+   container_name: mmm
+   environment:
+      MYSQL_ROOT_PASSWORD: 7777
+   volumes:
+      - data-mysql:/var/lib/mysql
+      - bkp-mysql:/home/bkp-mysql
+   ports:
+      - "3306:3306"
