@@ -1,3 +1,4 @@
+
 variable "security_group_ingress" {
   description = "secrules ingress"
   type = list(object(
@@ -56,8 +57,10 @@ variable "security_group_egress" {
 
 
 resource "yandex_vpc_security_group" "example" {
+  provider = yandex
+  depends_on = [module.vpc_dev]
   name       = "example_dynamic"
-  network_id = yandex_vpc_network.develop.id
+  network_id = module.vpc_dev.vpc_id
   folder_id  = var.folder_id
 
   dynamic "ingress" {

@@ -8,7 +8,9 @@
 
 # own secret vars store.
 personal.auto.tfvars
+key.json
 
 
-#ansible
-*.cfg
+**/.external_modules/*
+.external_modules/*
+/.external_modules/*
