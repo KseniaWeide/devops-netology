@@ -5,6 +5,7 @@ module "vpc" {
   cidr  	= "10.0.1.0/24"
 }
 
+
 module "test-vm" {
   source      	= "git::https://github.com/ksenia-nikolaeva/yandex_compute_instance.git?ref=main"
   env_name    	= "develop"
