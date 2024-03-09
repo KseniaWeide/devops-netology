@@ -5,8 +5,9 @@ module "vpc" {
   cidr  	= "10.0.1.0/24"
 }
 
+
 module "test-vm" {
-  source      	= "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
+  source      	= "git::https://github.com/ksenia-nikolaeva/yandex_compute_instance.git?ref=main"
   env_name    	= "develop"
 #  network_id  	= yandex_vpc_network.develop.id
   network_id  	= module.vpc.vpc_id

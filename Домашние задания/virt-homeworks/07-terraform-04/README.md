@@ -104,7 +104,7 @@ module.vpc.yandex_vpc_subnet.subnet_name
 vagrant@server1:~/dz_terraform/ter-homeworks/04/demonstration1$ terraform state show module.vpc.yandex_vpc_network.net_name
 # module.vpc.yandex_vpc_network.net_name:
 resource "yandex_vpc_network" "net_name" {
-    created_at                = "2023-11-23T07:21:03Z"
+    created_at                = "2024-02-02T07:21:13Z"
     default_security_group_id = "enp8hc7bcj9vmuthuqor"
     folder_id                 = "b1gk3u0k5bfco8fvc50h"
     id                        = "enpp9agne0q3ck2m34sc"
@@ -115,7 +115,7 @@ resource "yandex_vpc_network" "net_name" {
 vagrant@server1:~/dz_terraform/ter-homeworks/04/demonstration1$ terraform state show module.vpc.yandex_vpc_subnet.subnet_name
 # module.vpc.yandex_vpc_subnet.subnet_name:
 resource "yandex_vpc_subnet" "subnet_name" {
-    created_at     = "2023-11-23T07:21:13Z"
+    created_at     = "2024-02-02T07:21:13Z"
     folder_id      = "b1gk3u0k5bfco8fvc50h"
     id             = "e9blm6likh00knrqiocs"
     labels         = {}
