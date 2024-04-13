@@ -1,0 +1,12 @@
+version : "2.4"
+services:
+ centos7-clickhouse:
+    image: pycontribs/centos:7
+    container_name: clickhouse-01
+    restart: unless-stopped
+    entrypoint: "sleep infinity"
+ centos7-vector:
+    image: pycontribs/centos:7
+    container_name: vector-01
+    restart: unless-stopped
+    entrypoint: "sleep infinity"
